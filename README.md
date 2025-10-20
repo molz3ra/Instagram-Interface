@@ -20,11 +20,6 @@ Este clone recria a aparência visual da aplicação web (ou móvel) do Instagra
 * **JavaScript:** (Opcional) Para qualquer interatividade básica, como alternar o estado de "curtir".
 * *(Se usou algum framework, liste aqui, ex: React, Vue, Angular)*
 
-## 📸 Screenshot
-
-(Adicione aqui um screenshot do seu projeto da interface do Instagram)
-`![Screenshot do Clone do Instagram](./caminho/para/imagem/instagram.png)`
-
 ## 🔧 Como Executar
 
 1.  Clone este repositório (ou a pasta do projeto).
