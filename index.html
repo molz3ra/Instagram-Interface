@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram UI Animado</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        /* Estilos Gerais */
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #FAFAFA;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        /* Animação de Fade-in para os elementos */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .instagram-ui {
+            width: 100%;
+            max-width: 600px;
+            background-color: #FFF;
+            border: 1px solid #DBDBDB;
+            border-radius: 8px;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        /* Cabeçalho */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 15px;
+            border-bottom: 1px solid #DBDBDB;
+        }
+
+        .header .logo {
+            font-family: 'Grand Hotel', cursive; /* Uma fonte que lembra a do Instagram */
+            font-size: 28px;
+        }
+        
+        /* Adicionando a fonte do logo */
+        @import url('https://fonts.googleapis.com/css2?family=Grand+Hotel&display=swap');
+
+        .header .actions i {
+            font-size: 24px;
+            margin-left: 20px;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+
+        .header .actions i:hover {
+            transform: scale(1.1);
+        }
+
+        /* Post */
+        .post {
+            border-bottom: 1px solid #DBDBDB;
+        }
+
+        .post-header {
+            display: flex;
+            align-items: center;
+            padding: 12px 15px;
+        }
+
+        .post-header img {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            margin-right: 12px;
+        }
+
+        .post-header .username {
+            font-weight: bold;
+            flex-grow: 1;
+        }
+        
+        .post-header i {
+            cursor: pointer;
+        }
+
+        .post-image {
+            position: relative;
+            user-select: none; /* Impede que a imagem seja selecionada com o duplo clique */
+        }
+        
+        .post-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        /* Animação do coração do duplo clique */
+        .post-image .like-heart {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            font-size: 80px;
+            color: #fff;
+            transform: translate(-50%, -50%) scale(0);
+            opacity: 0;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+            pointer-events: none; /* O coração não pode ser clicado */
+        }
+
+        .post-image .like-heart.show {
+            animation: heart-pop 0.6s ease-in-out;
+        }
+
+        @keyframes heart-pop {
+            0% {
+                transform: translate(-50%, -50%) scale(0);
+                opacity: 0;
+            }
+            50% {
+                transform: translate(-50%, -50%) scale(1.2);
+                opacity: 0.9;
+            }
+            100% {
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 0;
+            }
+        }
+        
+        .post-actions {
+            display: flex;
+            align-items: center;
+            padding: 8px 15px;
+        }
+
+        .post-actions .action-btn {
+            font-size: 24px;
+            margin-right: 15px;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+        
+        .post-actions .action-btn:hover {
+            transform: scale(1.15);
+        }
+
+        .post-actions .bookmark {
+            margin-left: auto;
+            margin-right: 0;
+        }
+
+        /* Animação do botão de like */
+        .like-btn.liked {
+            color: red;
+            animation: like-pulse 0.4s ease;
+        }
+
+        @keyframes like-pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.3); }
+            100% { transform: scale(1); }
+        }
+
+        .post-info {
+            padding: 0 15px 15px;
+        }
+
+        .post-info .likes {
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+        
+        .post-info .caption .username {
+            font-weight: bold;
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="instagram-ui">
+        <header class="header">
+            <div class="logo">Instagram</div>
+            <div class="actions">
+                <i class="fa-regular fa-square-plus"></i>
+                <i class="fa-regular fa-heart"></i>
+                <i class="fa-regular fa-paper-plane"></i>
+            </div>
+        </header>
+
+        <main class="feed">
+            <article class="post">
+                <div class="post-header">
+                    <img src="https://picsum.photos/id/1027/50/50" alt="Avatar do usuário">
+                    <span class="username">Luisa Sonsa</span>
+                    <i class="fa-solid fa-ellipsis"></i>
+                </div>
+                <div class="post-image">
+                    <img src="https://picsum.photos/id/1027/600/600" alt="Imagem do post">
+                    <i class="fa-solid fa-heart like-heart"></i>
+                </div>
+                <div class="post-actions">
+                    <i class="action-btn like-btn fa-regular fa-heart"></i>
+                    <i class="action-btn fa-regular fa-comment"></i>
+                    <i class="action-btn fa-regular fa-paper-plane"></i>
+                    <i class="action-btn bookmark fa-regular fa-bookmark"></i>
+                </div>
+                <div class="post-info">
+                    <div class="likes">1.234 curtidas</div>
+                    <div class="caption">
+                        <span class="username">Luan Santana</span>
+                        Linda! S2
+                    </div>
+                </div>
+            </article>
+
+            <article class="post">
+                <div class="post-header">
+                    <img src="https://picsum.photos/id/237/50/50" alt="Avatar do usuário">
+                    <span class="username">viagensincriveis</span>
+                    <i class="fa-solid fa-ellipsis"></i>
+                </div>
+                <div class="post-image">
+                    <img src="https://picsum.photos/id/10/600/750" alt="Imagem do post">
+                    <i class="fa-solid fa-heart like-heart"></i>
+                </div>
+                <div class="post-actions">
+                    <i class="action-btn like-btn fa-regular fa-heart"></i>
+                    <i class="action-btn fa-regular fa-comment"></i>
+                    <i class="action-btn fa-regular fa-paper-plane"></i>
+                    <i class="action-btn bookmark fa-regular fa-bookmark"></i>
+                </div>
+                <div class="post-info">
+                    <div class="likes">5.678 curtidas</div>
+                    <div class="caption">
+                        <span class="username">viagensincriveis</span>
+                        Um lugar para se perder e se encontrar. 
+                    </div>
+                </div>
+            </article>
+        </main>
+    </div>
+
+    <script>
+        // Seleciona todos os posts
+        const posts = document.querySelectorAll('.post');
+
+        posts.forEach(post => {
+            const likeBtn = post.querySelector('.like-btn');
+            const postImage = post.querySelector('.post-image');
+            const heartIcon = post.querySelector('.like-heart');
+
+            // Função para curtir
+            const toggleLike = () => {
+                // Alterna entre coração preenchido e vazio
+                likeBtn.classList.toggle('fa-regular'); // Coração vazio
+                likeBtn.classList.toggle('fa-solid');   // Coração preenchido
+                
+                // Adiciona ou remove a classe 'liked' para a animação
+                if (likeBtn.classList.contains('fa-solid')) {
+                    likeBtn.classList.add('liked');
+                } else {
+                    likeBtn.classList.remove('liked');
+                }
+            };
+            
+            // Evento de clique no botão de like
+            likeBtn.addEventListener('click', toggleLike);
+
+            // Evento de duplo clique na imagem
+            postImage.addEventListener('dblclick', () => {
+                // Mostra o coração grande com a animação
+                heartIcon.classList.add('show');
+                
+                // Garante que o post seja curtido (se já não estiver)
+                if (!likeBtn.classList.contains('fa-solid')) {
+                    toggleLike();
+                }
+
+                // Remove a classe da animação do coração após ela terminar
+                setTimeout(() => {
+                    heartIcon.classList.remove('show');
+                }, 700); // Duração um pouco maior que a da animação
+            });
+        });
+
+    </script>
+</body>
+</html>
