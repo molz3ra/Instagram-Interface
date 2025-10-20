@@ -35,4 +35,4 @@ Este clone recria a aparência visual da aplicação web (ou móvel) do Instagra
 ## 🧑‍💻 Autor
 
 * **[Seu Nome]**
-* GitHub: [@seu-usuario](https://github.com/seu-usuario)
+* GitHub: [molz3ra](https://github.com/molz3ra)
