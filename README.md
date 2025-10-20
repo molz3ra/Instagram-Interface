@@ -36,4 +36,4 @@ Este clone recria a aparência visual da aplicação web (ou móvel) do Instagra
 
 * **[Lucas Mol]**
 * GitHub: [molz3ra](https://github.com/molz3ra)
-* Linkedln: [Mol]([molz3ra](https://github.com/molz3ra))
+* Linkedln: [mol035]([molz3ra](https://github.com/molz3ra))
